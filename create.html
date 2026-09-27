@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070a12"><title>Create QR Card — QRLink</title><link rel="icon" href="./assets/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css"><script src="./assets/qrcode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="./config.js"></script></head>
+<body class="builder-page">
+<header class="nav"><a class="logo" href="./index.html"><span class="logo-mark">QR</span><span>QRLink</span></a><a class="back" href="./index.html">← Back home</a></header>
+<main class="shell builder-shell">
+<div class="builder-heading"><div><div class="section-kicker">CARD BUILDER</div><h1>Create your unique QR card</h1><p>Add everything you want people to find in one place.</p></div><div id="modeBadge" class="mode-badge">Checking Supabase…</div></div>
+<div id="notice" class="notice hidden"></div>
+<div class="builder-layout">
+<form id="cardForm" class="form-panel">
+<div class="form-section"><div class="section-title"><div><span>01</span><h2>Profile</h2></div><small>Required: name</small></div>
+<div class="photo-row"><div id="photoPreview" class="big-avatar">QR</div><label class="upload"><input id="photo" type="file" accept="image/png,image/jpeg,image/webp"><span>Upload photo</span><small>JPG, PNG or WebP · max 5MB</small></label></div>
+<label>Display name<input id="name" maxlength="80" required placeholder="Ezz Nofal"></label><label>Short bio<textarea id="bio" maxlength="180" rows="3" placeholder="Student · Creator · Developer"></textarea></label></div>
+<div class="form-section"><div class="section-title"><div><span>02</span><h2>Contact</h2></div><small>Optional</small></div><div class="two"><label>Email<input id="email" type="email" maxlength="120" placeholder="you@example.com"></label><label>Phone<input id="phone" type="tel" maxlength="30" placeholder="+20 10 1234 5678"></label></div></div>
+<div class="form-section"><div class="section-title"><div><span>03</span><h2>Your links</h2></div><small id="linkCount">0 links</small></div><p class="field-help">Add any website, social profile or custom URL. You can use unlimited links.</p><div id="linksList" class="links-list"></div><button type="button" class="add-link" id="addLink">+ Add another link</button></div>
+<div class="form-actions"><button class="button primary wide" id="createBtn" type="submit">Generate unique QR <span>→</span></button><button class="button secondary" id="resetBtn" type="button">Reset</button></div>
+</form>
+<aside class="preview-column"><div class="preview-label">LIVE PREVIEW</div><div class="profile-card" id="previewCard"><div id="previewAvatar" class="profile-avatar">QR</div><div class="verified">● QRLink profile</div><h2 id="previewName">Your Name</h2><p id="previewBio">Your short bio appears here</p><div id="previewContact" class="contact-line"></div><div id="previewLinks" class="preview-links"><div class="empty-links">Your links will appear here</div></div><div class="qr-area"><div class="qr-placeholder"><span>QR</span><small>Your unique QR appears after creation</small></div></div></div><div id="result" class="result hidden"></div></aside>
+</div></main>
+<script src="./app.js"></script><script>if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
+</body></html>
